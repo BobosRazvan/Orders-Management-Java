@@ -1,8 +1,10 @@
 package com.example.pt2024_30425_bobos_razvanandrei_assignment_3.Controllers;
 
+import com.example.pt2024_30425_bobos_razvanandrei_assignment_3.BusinessLogic.BillBLL;
 import com.example.pt2024_30425_bobos_razvanandrei_assignment_3.BusinessLogic.ClientBLL;
 import com.example.pt2024_30425_bobos_razvanandrei_assignment_3.BusinessLogic.OrdersBLL;
 import com.example.pt2024_30425_bobos_razvanandrei_assignment_3.BusinessLogic.ProductBLL;
+import com.example.pt2024_30425_bobos_razvanandrei_assignment_3.Model.Bill;
 import com.example.pt2024_30425_bobos_razvanandrei_assignment_3.Model.Client;
 import com.example.pt2024_30425_bobos_razvanandrei_assignment_3.Model.Orders;
 import com.example.pt2024_30425_bobos_razvanandrei_assignment_3.Model.Product;
@@ -45,6 +47,7 @@ public class OrdersWindowController {
     private ClientBLL clientBLL = new ClientBLL();
 
     private final ProductBLL productBLL = new ProductBLL();
+    private final BillBLL billBLL = new BillBLL();
 
     @FXML
     void onBackClicked(MouseEvent event) {
@@ -58,21 +61,21 @@ public class OrdersWindowController {
 
     @FXML
     void onCreateOrderClicked(MouseEvent event) throws Exception {
-
         Orders order = new Orders();
         order.setClient_id(Integer.parseInt(clientIdTextField.getText()));
         order.setProduct_id(Integer.parseInt(productIdTextField.getText()));
         order.setQuantity(Integer.parseInt(quantityTextField.getText()));
         order.setTotal_amount(ordersBLL.calculateTotalPrice(order));
-
         if(ordersBLL.enoughStock(productBLL.getProductById(order.getProduct_id()).getId(), order.getQuantity()) == false){
             underStockText.setText("Under stock");
-
         }
         else{
             ordersBLL.updateStock(order);
             ordersBLL.createOrder(order);
-
+            int order_id=ordersBLL.getLastOrderId();
+            int id=0;
+            Bill bill= new Bill(id,order_id, order.getTotal_amount());
+            billBLL.addBill(bill);
             OrdersApplication app = new OrdersApplication();
             try {
                 app.changeScene("ConfirmOrder.fxml");
@@ -80,8 +83,6 @@ public class OrdersWindowController {
                 throw new RuntimeException(e);
             }
         }
-
-       
     }
 
     @FXML
@@ -106,6 +107,8 @@ public class OrdersWindowController {
         table.setItems(FXCollections.observableArrayList(items));
 
     }
+
+
     private void setupClientsTable(TableView<Client> table, List<Client> items) {
         if (items == null || items.isEmpty()) return;
         table.getColumns().clear();

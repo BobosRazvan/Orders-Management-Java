@@ -8,4 +8,7 @@ public class OrdersDAO extends AbstractDAO<Orders> {
     public OrdersDAO() {
         super(Orders.class);
     }
+
+
+
 }

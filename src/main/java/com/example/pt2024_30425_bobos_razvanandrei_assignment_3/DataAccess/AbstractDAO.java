@@ -60,6 +60,7 @@ public class AbstractDAO<T> {
     }
 
 
+
     public List<T> findAll() {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -202,5 +203,30 @@ public class AbstractDAO<T> {
             ConnectionFactory.close(statement);
         }
     }
+
+
+
+
+   ///asta este fara Reflexion pt ca este pt bill am voie:)
+   public int findLatestId() {
+       PreparedStatement statement = null;
+       ResultSet resultSet = null;
+       String query = "SELECT id FROM " + tableName + " ORDER BY id DESC LIMIT 1";
+       try {
+           statement = this.connection.prepareStatement(query);
+           resultSet = statement.executeQuery();
+           if (resultSet.next()) { // Just check if there is at least one result
+               return resultSet.getInt("id"); // Return the id of the latest row
+           } else {
+               return -1; // Or handle this case as needed (e.g., throw an exception or return a default value)
+           }
+       } catch (SQLException e) {
+           e.printStackTrace();
+           return -1; // Or rethrow as a RuntimeException if you prefer
+       } finally {
+           ConnectionFactory.close(resultSet);
+           ConnectionFactory.close(statement);
+       }
+   }
 
 }

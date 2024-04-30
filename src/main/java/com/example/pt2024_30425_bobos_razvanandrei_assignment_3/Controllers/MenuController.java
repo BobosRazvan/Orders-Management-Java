@@ -24,6 +24,7 @@ public class MenuController {
     @FXML
     private Button processOrdersButton;
 
+
     @FXML
     void onManageClientsClicked(MouseEvent event) {
         OrdersApplication app = new OrdersApplication();
@@ -54,5 +55,7 @@ public class MenuController {
             throw new RuntimeException(e);
         }
     }
+
+
 
 }

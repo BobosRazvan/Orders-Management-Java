@@ -70,4 +70,8 @@ public class OrdersBLL {
         product.setStock(product.getStock() - order.getQuantity());
         productDAO.update(product);
     }
+
+    public int getLastOrderId() {
+        return orderDAO.findLatestId();
+    }
 }
