@@ -17,7 +17,10 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Controller class for managing clients window.
+ * This class handles user interactions and displays clients data.
+ */
 public class ClientsWindowController {
 
     @FXML

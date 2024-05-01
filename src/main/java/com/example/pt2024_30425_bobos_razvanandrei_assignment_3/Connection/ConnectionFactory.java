@@ -3,7 +3,10 @@ package com.example.pt2024_30425_bobos_razvanandrei_assignment_3.Connection;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+/**
+ * A factory class for creating database connections.
+ * This class provides methods for obtaining database connections and closing resources.
+ */
 public class ConnectionFactory {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/Orders Management";

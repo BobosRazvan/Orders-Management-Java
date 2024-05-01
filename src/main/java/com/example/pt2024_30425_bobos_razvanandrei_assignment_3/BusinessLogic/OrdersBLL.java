@@ -5,7 +5,9 @@ import com.example.pt2024_30425_bobos_razvanandrei_assignment_3.Model.*;
 
 import java.math.BigDecimal;
 import java.util.List;
-
+/**
+ * Business logic layer for managing clients.
+ */
 public class OrdersBLL {
 
     private OrdersDAO orderDAO;
@@ -14,7 +16,11 @@ public class OrdersBLL {
     public OrdersBLL() {
         orderDAO = new OrdersDAO();
     }
-
+    /**
+     * Retrieves all orders from the system.
+     *
+     * @return A list of all orders in the system.
+     */
     public List<Orders> getAllOrders() {
         return orderDAO.findAll();
     }

@@ -14,7 +14,10 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Controller class for managing products window.
+ * This class handles user interactions and products processing.
+ */
 public class ProductsWindowController {
 
     @FXML

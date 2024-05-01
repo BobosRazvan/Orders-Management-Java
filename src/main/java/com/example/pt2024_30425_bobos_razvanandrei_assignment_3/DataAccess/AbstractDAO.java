@@ -10,7 +10,10 @@ import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Abstract class representing Data Access Object (DAO) with generic methods for CRUD operations.
+ * @param <T> The type of object the DAO operates on.
+ */
 public class AbstractDAO<T> {
 
    private final Class<T> type;

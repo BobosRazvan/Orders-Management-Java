@@ -9,7 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Data Access Object (DAO) for managing Bill entities in the database.
+ */
 public class BillDAO {
 
       private Connection connection;

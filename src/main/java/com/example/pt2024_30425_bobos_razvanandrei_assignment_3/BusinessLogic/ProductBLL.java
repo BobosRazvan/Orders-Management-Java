@@ -5,7 +5,11 @@ import com.example.pt2024_30425_bobos_razvanandrei_assignment_3.Model.Product;
 
 import java.math.BigDecimal;
 import java.util.List;
-
+/**
+ * Business logic layer for managing products.
+ * This class provides methods to interact with products in the system,
+ * including retrieving all products and performing CRUD operations.
+ */
 public class ProductBLL {
 
     private ProductDAO productDAO;
@@ -13,6 +17,11 @@ public class ProductBLL {
     public ProductBLL() {
         productDAO = new ProductDAO();
     }
+    /**
+     * Retrieves all products from the system.
+     *
+     * @return A list of all products in the system.
+     */
 
     public List<Product> getAllProducts() {
         return productDAO.findAll();

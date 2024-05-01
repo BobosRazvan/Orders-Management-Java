@@ -9,7 +9,9 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+/**
+ * Main class for the Orders Management Application.
+ */
 public class OrdersApplication extends Application {
 
     private static Stage stg;
@@ -27,13 +29,20 @@ public class OrdersApplication extends Application {
         stage.show();
 
     }
-
+    /**
+     * Changes the scene to the specified FXML file.
+     * @param fxml The name of the FXML file.
+     * @throws IOException if an error occurs while loading the FXML file.
+     */
     public void changeScene(String fxml) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent pane = loader.load();
         stg.getScene().setRoot(pane);
     }
-
+    /**
+     * The main method, entry point of the application.
+     * @param args Command line arguments.
+     */
     public static void main(String[] args) {
         launch();
     }

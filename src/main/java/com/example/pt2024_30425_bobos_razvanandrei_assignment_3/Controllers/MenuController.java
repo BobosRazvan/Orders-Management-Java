@@ -13,7 +13,10 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
-
+/**
+ * Controller class for the main menu window.
+ * This class handles user interactions and navigation to other windows.
+ */
 public class MenuController {
     @FXML
     private Button manageClientsButton;

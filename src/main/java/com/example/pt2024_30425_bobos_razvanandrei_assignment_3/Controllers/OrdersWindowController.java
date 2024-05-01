@@ -18,7 +18,10 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
-
+/**
+ * Controller class for managing orders window.
+ * This class handles user interactions and order processing.
+ */
 public class OrdersWindowController {
 
     @FXML

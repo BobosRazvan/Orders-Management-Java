@@ -1,7 +1,9 @@
 package com.example.pt2024_30425_bobos_razvanandrei_assignment_3.Model;
 
 import java.math.BigDecimal;
-
+/**
+ * Represents a product entity.
+ */
 public class Product {
 
     int id;
