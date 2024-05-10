@@ -31,7 +31,7 @@ public class BillDAO {
                 e.printStackTrace();
             }
         }
-
+        ///la asta am cam renuntat intre timp
         public List<Bill> getAllBills() {
             List<Bill> bills = new ArrayList<>();
             try (PreparedStatement statement = connection.prepareStatement("SELECT id, order_id, amount FROM log");

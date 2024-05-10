@@ -89,7 +89,7 @@ public class AbstractDAO<T> {
         List<T> list=new ArrayList<>();
 
         while (resultSet.next()) {
-            T instance = type.getDeclaredConstructor().newInstance(); // Using getDeclaredConstructor
+            T instance = type.getDeclaredConstructor().newInstance();
             for (Field field : type.getDeclaredFields()) {
                 field.setAccessible(true);
                 Object value = resultSet.getObject(field.getName());
@@ -111,7 +111,7 @@ public class AbstractDAO<T> {
                 placeholders.append("?, ");
             }
         }
-        if (fields.length() > 0 && placeholders.length() > 0) {
+        if (fields.length() > 0 && placeholders.length() > 0) {  //sterg "," si space
             fields.setLength(fields.length() - 2);
             placeholders.setLength(placeholders.length() - 2);
         }
@@ -125,13 +125,13 @@ public class AbstractDAO<T> {
         PreparedStatement statement = null;
         String query = createInsertQuery();
         try {
-            statement = this.connection.prepareStatement(query);  // Ensure the query includes correct placeholders
+            statement = this.connection.prepareStatement(query);
             int i = 1;
             for (Field field : type.getDeclaredFields()) {
                 if (!field.getName().equals("id")) {
                     field.setAccessible(true);
                     Object value = field.get(object);
-                    statement.setObject(i++, value);  // Bind each field's value to the query
+                    statement.setObject(i++, value);//pune in query valorile obiectului
                 }
             }
             int affectedRows = statement.executeUpdate();
@@ -170,7 +170,7 @@ public class AbstractDAO<T> {
                 field.setAccessible(true);
                 Object value = field.get(object);
                 if (field.getName().equals("id")) {
-                    statement.setObject(type.getDeclaredFields().length, value);
+                    statement.setObject(type.getDeclaredFields().length, value);//pune in query valorile obiectului
                 } else {
                     statement.setObject(i++, value);
                 }
@@ -187,6 +187,7 @@ public class AbstractDAO<T> {
     }
 
     private String createDeleteQuery() {
+
         return "DELETE FROM " + tableName + " WHERE id = ?";
     }
 
@@ -218,14 +219,14 @@ public class AbstractDAO<T> {
        try {
            statement = this.connection.prepareStatement(query);
            resultSet = statement.executeQuery();
-           if (resultSet.next()) { // Just check if there is at least one result
-               return resultSet.getInt("id"); // Return the id of the latest row
+           if (resultSet.next()) {
+               return resultSet.getInt("id");
            } else {
-               return -1; // Or handle this case as needed (e.g., throw an exception or return a default value)
+               return -1;
            }
        } catch (SQLException e) {
            e.printStackTrace();
-           return -1; // Or rethrow as a RuntimeException if you prefer
+           return -1;
        } finally {
            ConnectionFactory.close(resultSet);
            ConnectionFactory.close(statement);

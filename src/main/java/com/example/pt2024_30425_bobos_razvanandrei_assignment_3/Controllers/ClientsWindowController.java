@@ -96,7 +96,7 @@ public class ClientsWindowController {
         if (items == null || items.isEmpty()) return;
         table.getColumns().clear();
 
-        Field[] fields = items.get(0).getClass().getDeclaredFields();
+        Field[] fields = items.get(0).getClass().getDeclaredFields();//am folosit aici reflection
 
         for (Field field : fields) {
             TableColumn<Client, String> column = new TableColumn<>(field.getName());

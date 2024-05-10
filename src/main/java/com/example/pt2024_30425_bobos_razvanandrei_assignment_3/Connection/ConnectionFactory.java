@@ -75,7 +75,7 @@ public class ConnectionFactory {
             }
         }
     }
-
+   //asta a fost de test cand am facut prima oara clasa
     public static String getClients(String name) {
         String query = "SELECT * FROM client WHERE name = ?";
 
