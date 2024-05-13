@@ -26,6 +26,8 @@ public class MenuController {
 
     @FXML
     private Button processOrdersButton;
+    @FXML
+    private Button checkLogTableButton;
 
 
     @FXML
@@ -54,6 +56,16 @@ public class MenuController {
         OrdersApplication app = new OrdersApplication();
         try {
             app.changeScene("OrdersWindow.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void onCheckLogTableClicked(MouseEvent event) {
+        OrdersApplication app = new OrdersApplication();
+        try {
+            app.changeScene("LogTableWindow.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

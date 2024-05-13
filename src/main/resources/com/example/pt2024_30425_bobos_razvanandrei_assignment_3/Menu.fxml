@@ -9,15 +9,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="652.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pt2024_30425_bobos_razvanandrei_assignment_3.Controllers.MenuController">
    <children>
-      <Button fx:id="manageClientsButton" layoutX="95.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#onManageClientsClicked" prefHeight="76.0" prefWidth="151.0" text="Manage Clients">
+      <Button fx:id="manageClientsButton" layoutX="95.0" layoutY="54.0" mnemonicParsing="false" onMouseClicked="#onManageClientsClicked" prefHeight="76.0" prefWidth="151.0" text="Manage Clients">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="manageProductsButton" layoutX="95.0" layoutY="217.0" mnemonicParsing="false" onMouseClicked="#onManageProductsClicked" prefHeight="76.0" prefWidth="151.0" text="Manage Products">
+      <Button fx:id="manageProductsButton" layoutX="95.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#onManageProductsClicked" prefHeight="76.0" prefWidth="151.0" text="Manage Products">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="processOrdersButton" layoutX="95.0" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#onProcessOrdersClicked" prefHeight="76.0" prefWidth="151.0" text="Process Orders">
+      <Button fx:id="processOrdersButton" layoutX="95.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#onProcessOrdersClicked" prefHeight="76.0" prefWidth="151.0" text="Process Orders">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font></Button>
@@ -31,5 +31,10 @@
             <Image url="@../../../../../../../../../Users/danie/Desktop/Razvi/Altele/orderManagementColoured.png" />
          </image>
       </ImageView>
+      <Button fx:id="checkLogTableButton" layoutX="95.0" layoutY="363.0" mnemonicParsing="false" onMouseClicked="#onCheckLogTableClicked" prefHeight="76.0" prefWidth="151.0" text="Check Log Table">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
